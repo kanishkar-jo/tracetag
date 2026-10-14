@@ -1,0 +1,13 @@
+{
+  "name": "tracetag-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile:contract": "node scripts/compile-contract.mjs"
+  },
+  "devDependencies": {
+    "@foundry-rs/anvil-win32-amd64": "1.7.1",
+    "aedes": "0.51.3",
+    "solc": "0.8.30"
+  }
+}

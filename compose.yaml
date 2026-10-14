@@ -1,0 +1,19 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    ports:
+      - "8883:8883"
+    volumes:
+      - ./config/mosquitto-docker.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./config/mosquitto.acl:/mosquitto/config/mosquitto.acl:ro
+      - ./data/security/mosquitto-passwords:/mosquitto/security/mosquitto-passwords:ro
+      - ./data/security/server.pem:/mosquitto/security/server.pem:ro
+      - ./data/security/server-key.pem:/mosquitto/security/server-key.pem:ro
+      - mosquitto-data:/mosquitto/data
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:stable
+    entrypoint: ["anvil", "--host", "0.0.0.0", "--chain-id", "31337"]
+    ports:
+      - "127.0.0.1:8545:8545"
+volumes:
+  mosquitto-data:

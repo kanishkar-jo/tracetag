@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+.env
+data/
+contracts/out/
+*.log
+*.tsbuildinfo
+# Per-device firmware credentials
+firmware/**/config.h
